@@ -7,4 +7,14 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: #131313;
+    letter-spacing: 0.1rem;
+}
+
+video {
+    outline: none !important;
 }

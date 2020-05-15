@@ -42,15 +42,16 @@ function App() {
       setSrc(urlsRef.current[randInt])
       console.log(urlsRef.current[randInt])
     }
-      , 10000);
+      , 120000);
   }, [])
 
   return (
     <div className="gif" style={{ backgroundImage: `url(${src})` }}>
       <div className="title">
         <h1>【ｒａｄｉｏｗａｖｅ】</h1>
+        <ReactPlayer controls={true} id="player" playing url='http://air.radiorecord.ru:805/synth_320' height="40px" width="100%"/>
+
       </div>
-      {/* <ReactPlayer playing url='http://air.radiorecord.ru:805/synth_320' /> */}
     </div>
   );
 }
