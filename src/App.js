@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ReactPlayer from 'react-player'
 import './App.css';
+import { config } from '../config';
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
   useEffect(() => {
     if (urlsRef.current.length === 0) {
       const getGifSrc = async () => {
-        let response = await fetch('https://api.giphy.com/v1/gifs/search?api_key=yJbGxZZTTXCoyEGc10fKjJEmwqsxLxgd&q=synthwave&limit=50&offset=0&rating=G&lang=en')
+        let response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${config.API_KEY}&q=synthwave&limit=50&offset=0&rating=G&lang=en`)
         let data = await response.json()
         let srcList = data.data
         let urls = srcList.map((src) => src.images.original.url)
