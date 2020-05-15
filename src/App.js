@@ -1,24 +1,56 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState, useEffect, useRef } from 'react';
+import ReactPlayer from 'react-player'
 import './App.css';
 
 function App() {
+
+  const [src, setSrc] = useState('./static/1.gif')
+  const [urls, setUrls] = useState([])
+
+  const urlsRef = useRef();
+  urlsRef.current = urls;
+
+  useEffect(() => {
+    if (urlsRef.current.length === 0) {
+      const getGifSrc = async () => {
+        let response = await fetch('https://api.giphy.com/v1/gifs/search?api_key=yJbGxZZTTXCoyEGc10fKjJEmwqsxLxgd&q=synthwave&limit=50&offset=0&rating=G&lang=en')
+        let data = await response.json()
+        let srcList = data.data
+        let urls = srcList.map((src) => src.images.original.url)
+        console.log('api call')
+        return urls
+      }
+      getGifSrc().then((urls) => {
+        console.log(urls);
+        setUrls(urls)
+        localStorage.setItem('urls', JSON.stringify(urls))
+      });
+    }
+  }, [])
+
+  useEffect(() => {
+    const urls = JSON.parse(localStorage.getItem('urls'))
+    if (urls) {
+      setUrls(urls)
+    }
+  }, [])
+
+
+  useEffect(() => {
+    setInterval(() => {
+      let randInt = Math.ceil(Math.random() * 50)
+      setSrc(urlsRef.current[randInt])
+      console.log(urlsRef.current[randInt])
+    }
+      , 10000);
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="gif" style={{ backgroundImage: `url(${src})` }}>
+      <div className="title">
+        <h1>【ｒａｄｉｏｗａｖｅ】</h1>
+      </div>
+      {/* <ReactPlayer playing url='http://air.radiorecord.ru:805/synth_320' /> */}
     </div>
   );
 }
