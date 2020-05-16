@@ -3,10 +3,12 @@ import ReactPlayer from 'react-player'
 import './App.css';
 import { config } from './config';
 import { radioStreams } from './radioStreams';
+import { localGifs } from './localGifs';
 
 function App() {
 
-  const [src, setSrc] = useState('./static/1.gif')
+  const [src, setSrc] = useState(localGifs[Math.ceil(Math.random()*localGifs.length)])
+  console.log(localGifs[Math.ceil(Math.random()*localGifs.length)])
   const [urls, setUrls] = useState([])
   const [streamLink, setStreamLink] = useState(radioStreams[0].link)
 
@@ -69,19 +71,23 @@ function App() {
       setSrc(urlsRef.current[randInt])
       console.log(urlsRef.current[randInt])
     }
-      , 60000);
+      , 120000);
   }, [])
 
 
   return (
     <div className="gif" style={{ backgroundImage: `url(${src})` }}>
       <h1>【ｒａｄｉｏｗａｖｅ】</h1>
+      <p>A minimal synthwave radio</p>
       <ReactPlayer controls={true} id="player" playing url={streamLink} height="40px" width="360px" />
       <div className="stream-btns">
         {radioStreams.map((stream, i) => (
           <button key={i} className={`btn ${streamLink === stream.link && 'active'}`} onClick={() => setStreamLink(stream.link)}>{stream.name}</button>
         ))}
-
+      </div>
+      <div className="attribution">
+        <a href="https://github.com/therexone/radiowave">Github</a>
+        <a href="https://giphy.com">Powered by Giphy</a>
       </div>
     </div>
   );

@@ -16,6 +16,15 @@
     text-align: center;
 }
 
+h1 {
+    margin: 0;
+}
+p {
+    margin-top: 0;
+    color: #ffffffd7;
+    font-weight: 300;
+}
+
 video {
     outline: none !important;
 }
@@ -37,6 +46,8 @@ video {
     transition: all 0.1s ease-in;
     box-sizing: border-box;
     outline: none;
+    font-family: "DM Mono", monospace;
+    font-weight: 300;
 }
 
 .btn:hover,
@@ -44,13 +55,30 @@ btn:active {
     color: white;
     background-color: black;
     font-weight: bold;
-    
 }
 
 .active {
     color: white;
     background-color: black !important;
-    font-weight: bold;
+    font-weight: 500 !important;
+}
+
+.attribution {
+    position: absolute;
+    bottom: 0;
+    margin: 2rem 0;
+}
+
+.attribution a {
+    color: #ffffff6b;
+    font-weight: 300;
+    font-size: 0.75rem;
+    margin: 0 0.5rem;
+    letter-spacing: normal;
+}
+
+.attribution a:hover{
+    color: #ffffffd7;
 }
 
 @media only screen and (max-width: 600px) {
