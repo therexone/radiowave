@@ -11,7 +11,6 @@ Then do
 ```
 yarn install
 yarn start
-
 ```
 ## Screenshots
 <img src="screenshots/4.png"/>
