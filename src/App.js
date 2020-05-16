@@ -17,12 +17,24 @@ function App() {
     const urls = JSON.parse(localStorage.getItem('urls'))
     if (urls) {
       setUrls(urls)
-      // console.log('got localdata')
+      urlsRef.current = urls
+      console.log('urls local found and set')
     }
   }, [])
 
   useEffect(() => {
-    if (urlsRef.length === 0) {
+    const streamLink = JSON.parse(localStorage.getItem('streamLink'));
+    const src = JSON.parse(localStorage.getItem('src'));
+    if (src && streamLink) {
+      setSrc(src);
+      setStreamLink(streamLink);
+    }
+  }, [])
+
+
+  useEffect(() => {
+    console.log(urlsRef.current.length)
+    if (urlsRef.current.length === 0) {
       const getGifSrc = async () => {
         let response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${config.API_KEY}&q=synthwave&limit=50&offset=0&rating=G&lang=en`)
         let data = await response.json()
@@ -33,11 +45,23 @@ function App() {
       }
       getGifSrc().then((urls) => {
         setUrls(urls)
-        localStorage.setItem('urls', JSON.stringify(urls))
       });
     }
-  }, [urls.length])
+  }, [])
 
+  useEffect(() => {
+    localStorage.setItem('urls', JSON.stringify(urls));
+  }, [urls])
+
+
+  useEffect(() => {
+    localStorage.setItem('streamLink', JSON.stringify(streamLink));
+  }, [streamLink])
+
+
+  useEffect(() => {
+    localStorage.setItem('src', JSON.stringify(src));
+  }, [src])
 
   useEffect(() => {
     setInterval(() => {
@@ -45,7 +69,7 @@ function App() {
       setSrc(urlsRef.current[randInt])
       console.log(urlsRef.current[randInt])
     }
-      , 30000);
+      , 60000);
   }, [])
 
 
