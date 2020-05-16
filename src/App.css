@@ -88,8 +88,7 @@ btn:active {
     }
     .gif {
         flex-wrap: wrap;
-        background-size: cover
-
+        background-size: cover;
     }
     .stream-btns .btn,
     .btn:link {
