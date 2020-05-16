@@ -7,7 +7,7 @@ import { localGifs } from './localGifs';
 
 function App() {
 
-  const [src, setSrc] = useState(localGifs[Math.ceil(Math.random()*localGifs.length)])
+  const [src, setSrc] = useState(localGifs[Math.ceil(Math.random() * localGifs.length)])
   const [urls, setUrls] = useState([])
   const [streamLink, setStreamLink] = useState(radioStreams[0].link)
 
@@ -25,7 +25,10 @@ function App() {
 
   useEffect(() => {
     const streamLink = JSON.parse(localStorage.getItem('streamLink'));
-    const src = JSON.parse(localStorage.getItem('src') || '');
+    let src;
+    if (localStorage.getItem('src')) {
+       src = JSON.parse(localStorage.getItem('src') || '');
+    }
     if (src && streamLink) {
       setSrc(src);
       setStreamLink(streamLink);
