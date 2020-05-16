@@ -2,7 +2,7 @@ export const radioStreams = [
 
     {
         name: 'Radiorecord.ru',
-        link: 'http://air.radiorecord.ru:805/synth_320'
+        link: 'https://air.radiorecord.ru:805/synth_320'
     },
     {
         name: 'Nightride.fm',
@@ -10,11 +10,11 @@ export const radioStreams = [
     },
     {
         name: 'Synthwave.hu',
-        link: 'http://139.162.14.151:9090/160mp3/;'
+        link: 'https://139.162.14.151:9090/160mp3/;'
     },
     {
         name: 'Artefaktor',
-        link: 'http://192.95.18.39:5288/stream'
+        link: 'https://192.95.18.39:5288/stream'
     }
 
 ]

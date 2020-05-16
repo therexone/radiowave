@@ -8,7 +8,6 @@ import { localGifs } from './localGifs';
 function App() {
 
   const [src, setSrc] = useState(localGifs[Math.ceil(Math.random()*localGifs.length)])
-  console.log(localGifs[Math.ceil(Math.random()*localGifs.length)])
   const [urls, setUrls] = useState([])
   const [streamLink, setStreamLink] = useState(radioStreams[0].link)
 
@@ -20,13 +19,13 @@ function App() {
     if (urls) {
       setUrls(urls)
       urlsRef.current = urls
-      console.log('urls local found and set')
+      // console.log('urls local found and set')
     }
   }, [])
 
   useEffect(() => {
     const streamLink = JSON.parse(localStorage.getItem('streamLink'));
-    const src = JSON.parse(localStorage.getItem('src'));
+    const src = JSON.parse(localStorage.getItem('src') || '');
     if (src && streamLink) {
       setSrc(src);
       setStreamLink(streamLink);
@@ -35,14 +34,14 @@ function App() {
 
 
   useEffect(() => {
-    console.log(urlsRef.current.length)
+    // console.log(urlsRef.current.length)
     if (urlsRef.current.length === 0) {
       const getGifSrc = async () => {
         let response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=${config.API_KEY}&q=synthwave&limit=50&offset=0&rating=G&lang=en`)
         let data = await response.json()
         let srcList = data.data
         let urls = srcList.map((src) => src.images.original.url)
-        console.log('api call')
+        // console.log('api call')
         return urls
       }
       getGifSrc().then((urls) => {
@@ -69,7 +68,7 @@ function App() {
     setInterval(() => {
       let randInt = Math.ceil(Math.random() * 50)
       setSrc(urlsRef.current[randInt])
-      console.log(urlsRef.current[randInt])
+      // console.log(urlsRef.current[randInt])
     }
       , 120000);
   }, [])

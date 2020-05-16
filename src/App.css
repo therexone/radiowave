@@ -88,9 +88,15 @@ btn:active {
     }
     .gif {
         flex-wrap: wrap;
+        background-size: cover
+
     }
     .stream-btns .btn,
     .btn:link {
         margin: 0.5rem 0.25rem;
+    }
+    
+    #player{
+        width: 320px !important;
     }
 }
