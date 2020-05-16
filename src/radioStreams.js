@@ -10,11 +10,11 @@ export const radioStreams = [
     },
     {
         name: 'Synthwave.hu',
-        link: 'https://139.162.14.151:9090/160mp3/;'
+        link: 'http://139.162.14.151:9090/160mp3/;'
     },
     {
         name: 'Artefaktor',
-        link: 'https://192.95.18.39:5288/stream'
+        link: 'http://192.95.18.39:5288/stream'
     }
 
 ]
