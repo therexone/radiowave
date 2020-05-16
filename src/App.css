@@ -25,9 +25,14 @@ p {
     font-weight: 300;
 }
 
-video {
+audio {
     outline: none !important;
+    opacity: 0.8;
+    width: 360px;
+    height: 40px;
+
 }
+
 
 .stream-btns {
     text-align: center;
@@ -77,7 +82,7 @@ btn:active {
     letter-spacing: normal;
 }
 
-.attribution a:hover{
+.attribution a:hover {
     color: #ffffffd7;
 }
 
@@ -90,12 +95,17 @@ btn:active {
         flex-wrap: wrap;
         background-size: cover;
     }
+
+    .stream-btns{
+        margin-top: 0.75rem;
+    }
+
     .stream-btns .btn,
     .btn:link {
         margin: 0.5rem 0.25rem;
     }
-    
-    #player{
+
+    audio {
         width: 320px !important;
     }
 }

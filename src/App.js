@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import ReactPlayer from 'react-player'
 import './App.css';
 import { config } from './config';
 import { radioStreams } from './radioStreams';
 import { localGifs } from './localGifs';
+
 
 function App() {
 
@@ -27,7 +27,7 @@ function App() {
     const streamLink = JSON.parse(localStorage.getItem('streamLink'));
     let src;
     if (localStorage.getItem('src')) {
-       src = JSON.parse(localStorage.getItem('src') || '');
+      src = JSON.parse(localStorage.getItem('src') || '');
     }
     if (src && streamLink) {
       setSrc(src);
@@ -81,7 +81,7 @@ function App() {
     <div className="gif" style={{ backgroundImage: `url(${src})` }}>
       <h1>【ｒａｄｉｏｗａｖｅ】</h1>
       <p>A minimal synthwave radio</p>
-      <ReactPlayer controls={true} id="player" playing url={streamLink} height="40px" width="360px" />
+      <audio controls autoPlay src={streamLink}></audio>
       <div className="stream-btns">
         {radioStreams.map((stream, i) => (
           <button key={i} className={`btn ${streamLink === stream.link && 'active'}`} onClick={() => setStreamLink(stream.link)}>{stream.name}</button>
