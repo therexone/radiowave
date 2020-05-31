@@ -19,6 +19,7 @@ function App() {
     if (urls) {
       setUrls(urls)
       urlsRef.current = urls
+      setSrc(urls[Math.ceil(Math.random() * 50)])
       // console.log('urls local found and set')
     }
   }, [])
