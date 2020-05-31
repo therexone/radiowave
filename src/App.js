@@ -25,12 +25,7 @@ function App() {
 
   useEffect(() => {
     const streamLink = JSON.parse(localStorage.getItem('streamLink'));
-    let src;
-    if (localStorage.getItem('src')) {
-      src = JSON.parse(localStorage.getItem('src') || '');
-    }
-    if (src && streamLink) {
-      setSrc(src);
+    if (streamLink) {
       setStreamLink(streamLink);
     }
   }, [])
@@ -62,10 +57,6 @@ function App() {
     localStorage.setItem('streamLink', JSON.stringify(streamLink));
   }, [streamLink])
 
-
-  useEffect(() => {
-    localStorage.setItem('src', JSON.stringify(src));
-  }, [src])
 
   useEffect(() => {
     setInterval(() => {
