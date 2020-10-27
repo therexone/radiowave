@@ -30,9 +30,7 @@ audio {
     opacity: 0.8;
     width: 360px;
     height: 40px;
-
 }
-
 
 .stream-btns {
     text-align: center;
@@ -86,6 +84,44 @@ btn:active {
     color: #ffffffd7;
 }
 
+.lds-dual-ring {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+.lds-dual-ring:after {
+    opacity: 0.8;
+    content: " ";
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin: 4px;
+    border-radius: 60%;
+    border: 3px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.error-icon {
+    fill: rgba(255, 255, 255, 0.726);
+    height: 1.5rem;
+    width: 1.5rem;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
 @media only screen and (max-width: 600px) {
     .gif h1 {
         letter-spacing: normal;
@@ -96,7 +132,7 @@ btn:active {
         background-size: cover;
     }
 
-    .stream-btns{
+    .stream-btns {
         margin-top: 0.75rem;
     }
 
