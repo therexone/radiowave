@@ -4,7 +4,6 @@ import "./App.css";
 import { config } from "./config";
 import { radioStreams } from "./radioStreams";
 import { localGifs } from "./localGifs";
-import { ReactComponent as ErrorIcon } from "./error.svg";
 
 function App() {
   const [src, setSrc] = useState(
@@ -13,7 +12,6 @@ function App() {
   const [urls, setUrls] = useState([]);
   const [streamLink, setStreamLink] = useState(radioStreams[0].link);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(false);
 
   const urlsRef = useRef();
   urlsRef.current = urls;
@@ -80,16 +78,9 @@ function App() {
         src={streamLink}
         onLoadStart={() => setIsLoading(true)}
         onLoadedData={() => setIsLoading(false)}
-        onError={() => setError(true)}
+        onError={() => setStreamLink(radioStreams[1].link)}
       ></audio>
       {isLoading && <div className="lds-dual-ring"></div>}
-      {error && !isLoading && (
-        <ErrorIcon
-          className="error-icon"
-          fill="white"
-          onClick={() => setStreamLink(streamLink)}
-        />
-      )}
 
       <div className="stream-btns">
         {radioStreams.map((stream, i) => (

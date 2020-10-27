@@ -12,7 +12,7 @@ export const radioStreams = [
     link: "https://ecast.myautodj.com/public1channel",
   },
   {
-    name: "Radio Obrilho",
-    link: "http://192.99.37.181:8050/live.mp3",
+    name: "Laut.fm",
+    link: "https://nightdrive.stream.laut.fm/nightdrive",
   },
 ];
