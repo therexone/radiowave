@@ -83,7 +83,13 @@ function App() {
         onError={() => setError(true)}
       ></audio>
       {isLoading && <div className="lds-dual-ring"></div>}
-      {error && !isLoading && <ErrorIcon className="error-icon" fill="white" />}
+      {error && !isLoading && (
+        <ErrorIcon
+          className="error-icon"
+          fill="white"
+          onClick={() => setStreamLink(streamLink)}
+        />
+      )}
 
       <div className="stream-btns">
         {radioStreams.map((stream, i) => (
