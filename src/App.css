@@ -1,11 +1,4 @@
 .gif {
-    height: 100vh;
-    width: 100vw;
-    margin: 0;
-    background-color: black;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,6 +7,21 @@
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     letter-spacing: 0.1rem;
     text-align: center;
+    margin: auto 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+canvas {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    z-index: -1;
 }
 
 h1 {
@@ -28,7 +36,7 @@ p {
 audio {
     outline: none !important;
     opacity: 0.8;
-    width: 360px;
+    width: 320px;
     height: 40px;
 }
 
@@ -66,33 +74,19 @@ btn:active {
     font-weight: 500 !important;
 }
 
-.attribution {
-    position: absolute;
-    bottom: 0;
-    margin: 2rem 0;
-}
 
-.attribution a {
-    color: #ffffff6b;
-    font-weight: 300;
-    font-size: 0.75rem;
-    margin: 0 0.5rem;
-    letter-spacing: normal;
-}
-
-.attribution a:hover {
-    color: #ffffffd7;
-}
 
 .lds-dual-ring {
     display: inline-block;
     width: 40px;
     height: 40px;
     position: absolute;
-    top: 5px;
-    right: 5px;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
 }
 .lds-dual-ring:after {
+    z-index: 2;
     opacity: 0.8;
     content: " ";
     display: block;
@@ -113,14 +107,6 @@ btn:active {
     }
 }
 
-.error-icon {
-    fill: rgba(255, 255, 255, 0.726);
-    height: 1.5rem;
-    width: 1.5rem;
-    position: absolute;
-    top: 5px;
-    right: 10px;
-}
 
 @media only screen and (max-width: 600px) {
     .gif h1 {
