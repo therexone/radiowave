@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9cf8810d4b56a00f478444d49f268d31",
+    "revision": "addb00ceee475edb201cf2125fe41d80",
     "url": "/radiowave/index.html"
   },
   {
-    "revision": "3b63b54d0d776616cf55",
+    "revision": "d72d13c721614b240f82",
     "url": "/radiowave/static/css/main.30c73bcc.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/radiowave/static/js/2.180baed4.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3b63b54d0d776616cf55",
-    "url": "/radiowave/static/js/main.7fb50c62.chunk.js"
+    "revision": "d72d13c721614b240f82",
+    "url": "/radiowave/static/js/main.ba4e18b3.chunk.js"
   },
   {
     "revision": "7978c5b7c7e76910e2ed",
