@@ -1,7 +1,6 @@
 let audio;
 let analyser;
 
-
 let w;
 let h;
 
@@ -26,7 +25,7 @@ let particleDistanceTop = 10;
 
 //---
 
-function init(audioUrl) {
+function init() {
   canvas = document.createElement("canvas");
   canvas.addEventListener("mousedown", mouseDownHandler, false);
   canvas.addEventListener("mousemove", mouseMoveHandler, false);
@@ -47,19 +46,15 @@ function init(audioUrl) {
   render();
 
   context.putImageData(imageData, 0, 0);
-  audioSetup(audioUrl);
+  audioSetup();
   animate();
 }
 
 //---
 
-function audioSetup(audioUrl) {
+function audioSetup() {
   audio = document.getElementById("audio");
-  audio.autoplay = true;
   audio.crossOrigin = "anonymous";
-  audio.onended = function () {
-    audio.remove(); //remove after playing to clean the Dom
-  };
 
   const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
