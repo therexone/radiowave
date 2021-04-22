@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/radiowave/static/css/main.30c73bcc.chunk.css",
-    "main.js": "/radiowave/static/js/main.ba4e18b3.chunk.js",
-    "main.js.map": "/radiowave/static/js/main.ba4e18b3.chunk.js.map",
-    "runtime-main.js": "/radiowave/static/js/runtime-main.39c507b7.js",
-    "runtime-main.js.map": "/radiowave/static/js/runtime-main.39c507b7.js.map",
-    "static/js/2.180baed4.chunk.js": "/radiowave/static/js/2.180baed4.chunk.js",
-    "static/js/2.180baed4.chunk.js.map": "/radiowave/static/js/2.180baed4.chunk.js.map",
-    "index.html": "/radiowave/index.html",
-    "precache-manifest.bca77567aaf110a9879632d82a0b8980.js": "/radiowave/precache-manifest.bca77567aaf110a9879632d82a0b8980.js",
-    "service-worker.js": "/radiowave/service-worker.js",
-    "static/css/main.30c73bcc.chunk.css.map": "/radiowave/static/css/main.30c73bcc.chunk.css.map",
-    "static/js/2.180baed4.chunk.js.LICENSE.txt": "/radiowave/static/js/2.180baed4.chunk.js.LICENSE.txt"
+    "main.css": "/static/css/main.30c73bcc.chunk.css",
+    "main.js": "/static/js/main.ba4e18b3.chunk.js",
+    "main.js.map": "/static/js/main.ba4e18b3.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.ea348fb4.js",
+    "runtime-main.js.map": "/static/js/runtime-main.ea348fb4.js.map",
+    "static/js/2.180baed4.chunk.js": "/static/js/2.180baed4.chunk.js",
+    "static/js/2.180baed4.chunk.js.map": "/static/js/2.180baed4.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.c6b3a8381bb43c2bb47f1d2885cbbfd1.js": "/precache-manifest.c6b3a8381bb43c2bb47f1d2885cbbfd1.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.30c73bcc.chunk.css.map": "/static/css/main.30c73bcc.chunk.css.map",
+    "static/js/2.180baed4.chunk.js.LICENSE.txt": "/static/js/2.180baed4.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.39c507b7.js",
+    "static/js/runtime-main.ea348fb4.js",
     "static/js/2.180baed4.chunk.js",
     "static/css/main.30c73bcc.chunk.css",
     "static/js/main.ba4e18b3.chunk.js"
