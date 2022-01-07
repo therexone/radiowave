@@ -1,5 +1,5 @@
 # RadioWave
-A minimal synthwave radio app with visuals from the Giphy API, made in ReactJs.
+A minimal synthwave radio app with visuals from the Giphy API, made in React.
 
 [RadioWave Cli](https://github.com/therexone/radiowave-cli)
 
