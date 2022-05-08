@@ -1,15 +1,16 @@
 export const radioStreams = [
-  {
-    name: "Radiorecord.ru",
-    link: "https://air.radiorecord.ru:805/synth_320",
-  },
+
   {
     name: "Nightride.fm",
     link: "https://stream.nightride.fm/nightride.m4a",
   },
   {
-    name: "Synthwave.hu",
-    link: "https://ecast.myautodj.com/public1channel",
+    name: 'Synthetic FM',
+    link: "https://mediaserv38.live-streams.nl:18040/live"
+  },
+  {
+    name: "SynthwaveRadio.eu",
+    link: "https://icecast.synthwaveradio.eu:8000/live",
   },
   {
     name: "Laut.fm",
