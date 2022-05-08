@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
 import "./App.css";
-import { API_KEY} from "./config";
 import { radioStreams } from "./radioStreams";
 import { localGifs } from "./localGifs";
 
@@ -38,7 +37,7 @@ function App() {
     if (urlsRef.current.length === 0) {
       const getGifSrc = async () => {
         let response = await fetch(
-          `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&q=synthwave&limit=50&offset=0&rating=G&lang=en`
+          `https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=synthwave&limit=50&offset=0&rating=G&lang=en`
         );
         let data = await response.json();
         let srcList = data.data;
