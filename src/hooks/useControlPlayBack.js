@@ -1,13 +1,30 @@
 import { useEffect, useRef } from "react";
 import { radioStreams } from "../radioStreams";
+import useLocalStorageState from "./useLocalStorageState";
 
 const useControlPlayBack = (setStreamLink, streamLink) => {
+  const [volume, setVolume] = useLocalStorageState("volume", 1);
+
   const audioRef = useRef();
 
   useEffect(() => {
     const audio = audioRef.current;
+    if (volume) {
+      audio.volume = volume;
+    }
+    const saveVolumeToState = () => {
+      setVolume(audio.volume);
+    };
+    audio.addEventListener("volumechange", saveVolumeToState);
+
+    return () => {
+      audio.removeEventListener("volumechange", saveVolumeToState);
+    };
+  }, []);
+
+  useEffect(() => {
+    const audio = audioRef.current;
     const adjustVolumeOnScroll = (e) => {
-      console.log(audio.volume);
       if (e.wheelDelta < 0) {
         audio.volume = Math.max(0, audio.volume - 0.05);
       }
