@@ -3,75 +3,69 @@ import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 import { radioStreams } from "./radioStreams";
 import { localGifs } from "./localGifs";
+import useControlPlayBack from "./hooks/useControlPlayBack";
+import useLocalStorageState from "./hooks/useLocalStorageState";
 
 function App() {
-  const [src, setSrc] = useState(
-    localGifs[Math.ceil(Math.random() * localGifs.length)]
+  const [src, setSrc] = useLocalStorageState(
+    "src",
+    localGifs[Math.ceil(Math.random() * localGifs.length - 1)]
   );
-  const [urls, setUrls] = useState([]);
-  const [streamLink, setStreamLink] = useState(radioStreams[0].link);
+  const [urls, setUrls] = useLocalStorageState("urls", []);
+  const [streamLink, setStreamLink] = useLocalStorageState(
+    "streamLink",
+    radioStreams[0].link
+  );
   const [isLoading, setIsLoading] = useState(true);
 
-  const urlsRef = useRef();
-  urlsRef.current = urls;
-
   useEffect(() => {
-    const urls = JSON.parse(localStorage.getItem("urls"));
     if (urls) {
-      setUrls(urls);
-      urlsRef.current = urls;
       setSrc(urls[Math.ceil(Math.random() * 50)]);
-      // console.log('urls local found and set')
     }
-  }, []);
+  }, [setSrc, urls]);
 
   useEffect(() => {
-    const streamLink = JSON.parse(localStorage.getItem("streamLink"));
-    if (streamLink) {
-      setStreamLink(streamLink);
-    }
-  }, []);
-
-  useEffect(() => {
-    // console.log(urlsRef.current.length)
-    if (urlsRef.current.length === 0) {
+    if (urls.length === 0) {
       const getGifSrc = async () => {
         let response = await fetch(
-          `https://api.giphy.com/v1/gifs/search?api_key=${process.env.GIPHY_API_KEY}&q=synthwave&limit=50&offset=0&rating=G&lang=en`
+          `https://api.giphy.com/v1/gifs/search?api_key=${process.env.REACT_APP_GIPHY_API_KEY}&q=synthwave&limit=50&offset=0&rating=G&lang=en`
         );
         let data = await response.json();
         let srcList = data.data;
         let urls = srcList.map((src) => src.images.original.url);
-        // console.log('api call')
+        console.log('api call')
         return urls;
       };
       getGifSrc().then((urls) => {
         setUrls(urls);
       });
     }
-  }, []);
+  }, [setUrls, urls.length]);
 
   useEffect(() => {
-    localStorage.setItem("urls", JSON.stringify(urls));
-  }, [urls]);
-
-  useEffect(() => {
-    localStorage.setItem("streamLink", JSON.stringify(streamLink));
-  }, [streamLink]);
-
-  useEffect(() => {
-    setInterval(() => {
+    const interval = setInterval(() => {
       let randInt = Math.ceil(Math.random() * 50);
-      setSrc(urlsRef.current[randInt]);
+      setSrc(urls[randInt]);
       // console.log(urlsRef.current[randInt])
     }, 120000);
+
+    return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    document.title =
+      "radiowave | " +
+      radioStreams.find((stream) => stream.link === streamLink)?.name;
+  }, [streamLink]);
+
+  const { audioRef } = useControlPlayBack(setStreamLink, streamLink);
 
   return (
     <div className="gif" style={{ backgroundImage: `url(${src})` }}>
       <h1>【ｒａｄｉｏｗａｖｅ】</h1>
       <p>A minimal synthwave radio</p>
       <audio
+        ref={audioRef}
         controls
         autoPlay
         src={streamLink}
