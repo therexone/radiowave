@@ -20,7 +20,8 @@ const useControlPlayBack = (setStreamLink, streamLink) => {
     return () => {
       audio.removeEventListener("volumechange", saveVolumeToState);
     };
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [setVolume]);
 
   useEffect(() => {
     const audio = audioRef.current;

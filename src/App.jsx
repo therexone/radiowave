@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 
 import "./App.css";
 import { radioStreams } from "./radioStreams";
@@ -33,7 +33,7 @@ function App() {
         let data = await response.json();
         let srcList = data.data;
         let urls = srcList.map((src) => src.images.original.url);
-        console.log('api call')
+        console.log("api call");
         return urls;
       };
       getGifSrc().then((urls) => {
@@ -50,6 +50,7 @@ function App() {
     }, 120000);
 
     return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
